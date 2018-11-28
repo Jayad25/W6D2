@@ -45,10 +45,10 @@ li {
   font-size: 50px;
 }
 
-/* .x, .o {
+.x, .o {
   background-color: blue;
   color: white;
-} */
+}
 /* .xwinner{
   background-color: green;
 } */
@@ -59,3 +59,9 @@ li {
     font-size: 60px;
     line-height: 80px;
   }
+  
+  .winner-x .x,
+.winner-o .o {
+  background: green;
+  color: white;
+}
