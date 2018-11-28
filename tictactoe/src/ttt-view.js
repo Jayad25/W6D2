@@ -11,7 +11,7 @@ class View {
       const $position = $(event.currentTarget);
       // console.log($(event.target));
       // console.log($position);
-      this.game.playMove($position.data('pos'));
+      // this.game.playMove($position.data('pos'));
       this.makeMove($position);
     }));
     
@@ -22,18 +22,36 @@ class View {
   makeMove($square) {
     const pos = $square.data('pos');
     const currentPlayer = this.game.currentPlayer;
-    $square.addClass(currentPlayer);
-    $square.removeClass();
-    $square.addClass(`x:after`);
-    $square.text(currentPlayer);
-    // $square.addClass('g');
-    // console.log('x.');
-    
-    if(this.game.winner()){
-    
+    // // $square.addClass('g');
+    // // console.log('x.');
+    try {
+      this.game.playMove(pos);
+    } catch (e) {
+      alert("This " + e.msg.toLowerCase());
+      return;
     }
-    
+
+    $square.addClass(currentPlayer);
+    $square.text(currentPlayer);
+    if (this.game.isOver()) {
+     // cleanup click handlers.
+     this.$el.off("click");
+     this.$el.addClass("game-over");
+      
+    const winner = this.game.winner();
+    console.log(winner);
+      const $figcaption = $("<figcaption>");
+
+      if (winner) {
+        this.$el.off("click");
+        this.$el.addClass(`winner-${winner}`);
+        $figcaption.html(`You win, ${winner}!`);
+      } else {
+        $figcaption.html("It's a draw!");
+      }
+this.$el.append($figcaption);
   }
+}
   
 
   setupBoard() {
