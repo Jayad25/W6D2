@@ -119,6 +119,7 @@ class Board {
   }
 }
 
-Board.marks = ['x', 'o'];
+Board.marks = ['o', 'x'];
+// ❖
 
 module.exports = Board;

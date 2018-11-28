@@ -1,0 +1,61 @@
+html, body, figure, figcaption, ul, li, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+  background-color: #9d9dbb;
+  background-image: url(https://apod.nasa.gov/apod/image/1705/Arp273Main_HubblePestana_3079.jpg);
+
+}
+
+audio {
+  display: none;
+}
+
+h1 {
+  color: red;
+  text-align: center;
+  font-size: 100px;
+  font-family: helvetica;
+}
+
+
+li:hover {
+  background: yellow;
+}
+
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  width: 300px;
+  border: 5px solid black;
+}
+
+li {
+  width: 90px;
+  height: 90px;
+  border: 5px solid black;
+  background: purple;
+  cursor: pointer;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* .x, .o {
+  background-color: blue;
+  color: white;
+} */
+/* .xwinner{
+  background-color: green;
+} */
+.x:after, .o:after {
+    display: block;
+    width: 100%;
+    background-color: white;
+    font-size: 60px;
+    line-height: 80px;
+  }
